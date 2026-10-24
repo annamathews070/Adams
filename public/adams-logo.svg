@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" role="img" aria-labelledby="title desc">
+  <title id="title">Adam’s — The Complete Property Solutions</title>
+  <desc id="desc">Mint-green land and document symbol beside the Adam’s wordmark and company tagline.</desc>
+  <g fill="none" stroke="#48bf9a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M28 26h55l47 48v53c-31-7-61-16-102-23z"/>
+    <path d="M83 27v47h47"/>
+    <path d="M30 111c33 6 64 16 99 26"/>
+    <path d="M29 135c33 6 64 17 98 29"/>
+    <path d="M29 158c33 6 63 16 94 28"/>
+  </g>
+  <text x="184" y="106" fill="#050807" font-family="Arial, Helvetica, sans-serif" font-size="79" font-weight="400" letter-spacing="-2">ADAM’S</text>
+  <text x="224" y="139" fill="#050807" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" letter-spacing="4.2">THE COMPLETE PROPERTY SOLUTIONS</text>
+</svg>
