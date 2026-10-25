@@ -206,6 +206,10 @@
     link.href = makeWhatsAppUrl(`Hello Adams, I am enquiring about ${link.dataset.service}. Please share the next steps.`);
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
+    const localLine = document.createElement('span');
+    localLine.className = 'service-malayalam';
+    localLine.textContent = 'സ്വത്ത് കാര്യങ്ങളിൽ ഞങ്ങൾ നിങ്ങളോടൊപ്പം.';
+    link.append(localLine);
   });
 
   const projectViews = [...document.querySelectorAll('.project-view')];
