@@ -171,6 +171,20 @@ html[data-page="about"] .team-strip{display:grid}
 @media(max-width:700px){.brick-profile{grid-template-columns:1fr;padding:22px;gap:20px}.investor-structure{grid-template-columns:1fr;gap:18px;padding:23px 0}.investor-structure>.eyebrow,.structure-note{grid-column:1}.investor-structure>div{padding:0}}
 @media(max-width:700px){.proposal-status{grid-template-columns:1fr;gap:8px;margin-top:24px;padding:16px}.proposal-status strong{font-size:17px}.proposal-status p{font-size:11px}.roi-scenarios{padding:18px}.roi-scenario-grid article p{font-size:11px}}
 
+/* Keep the hero composed on short landscape screens. */
+@media (min-width:701px) and (max-height:600px){
+	.hero{height:100svh;min-height:420px}
+	.hero__sticky{height:100svh;min-height:420px}
+	.hero-content{top:78px;left:var(--gutter);right:var(--gutter)}
+	.hero-eyebrow{margin-bottom:14px}
+	.hero h1{font-size:clamp(3.6rem,7.2vw,6.4rem);line-height:.9;margin-bottom:20px}
+	.hero-bottom{gap:28px;align-items:center}
+	.hero-bottom p{font-size:14px;line-height:1.45;max-width:510px}
+	.round-link{width:44px;height:44px}
+	.hero-location{bottom:10px;height:auto;font-size:8px}
+	.hero-image-note{bottom:15px;font-size:8px}
+}
+
 /* Final readability pass for the service directory and footer. */
 .service-card{min-height:220px;padding:29px 30px 27px;background:rgba(249,247,241,.82);border-color:rgba(38,40,37,.24)}
 .service-card:hover{background:#e9e4d9;color:var(--ink)}
