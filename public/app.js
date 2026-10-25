@@ -17,7 +17,7 @@
   };
   const skipLink = document.querySelector('.skip-link');
   if (skipLink) skipLink.href = skipTargets[currentPage];
-  document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach((link) => {
+  document.querySelectorAll('.desktop-nav a, .mobile-nav a, .mobile-project-menu summary').forEach((link) => {
     const route = link.getAttribute('href')?.replace(/^\//, '') || 'home';
     if (route === currentPage) link.setAttribute('aria-current', 'page');
   });
@@ -210,6 +210,16 @@
 
   const projectSelect = document.querySelector('#project-view-select');
   const projectViews = [...document.querySelectorAll('.project-view')];
+  const requestedProject = new URLSearchParams(window.location.search).get('view');
+  if (projectSelect && (requestedProject === 'chembra' || requestedProject === 'industrial')) projectSelect.value = requestedProject;
+  if (projectSelect && projectViews.length) {
+    const selectedProject = projectSelect.value;
+    projectViews.forEach((view) => {
+      const isSelected = view.id === `${selectedProject}-project`;
+      view.hidden = !isSelected;
+      view.classList.toggle('is-selected', isSelected);
+    });
+  }
   projectSelect?.addEventListener('change', () => {
     const selectedProject = projectSelect.value;
     projectViews.forEach((view) => {
