@@ -231,8 +231,7 @@ body{font-size:18px;line-height:1.7}
 	.hero-bottom{gap:28px;align-items:center}
 	.hero-bottom p{font-size:14px;line-height:1.45;max-width:510px}
 	.round-link{width:44px;height:44px}
-	.hero-location{bottom:10px;height:auto;font-size:8px}
-	.hero-image-note{bottom:15px;font-size:8px}
+	.hero-location,.hero-image-note{display:none}
 }
 
 /* Final readability pass for the service directory and footer. */
