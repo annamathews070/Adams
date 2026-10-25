@@ -208,27 +208,16 @@
     link.rel = 'noopener noreferrer';
   });
 
-  const projectSelect = document.querySelector('#project-view-select');
   const projectViews = [...document.querySelectorAll('.project-view')];
   const requestedProject = new URLSearchParams(window.location.search).get('view');
-  if (projectSelect && (requestedProject === 'chembra' || requestedProject === 'industrial')) projectSelect.value = requestedProject;
-  if (projectSelect && projectViews.length) {
-    const selectedProject = projectSelect.value;
+  const selectedProject = requestedProject === 'industrial' ? 'industrial' : 'chembra';
+  if (projectViews.length) {
     projectViews.forEach((view) => {
       const isSelected = view.id === `${selectedProject}-project`;
       view.hidden = !isSelected;
       view.classList.toggle('is-selected', isSelected);
     });
   }
-  projectSelect?.addEventListener('change', () => {
-    const selectedProject = projectSelect.value;
-    projectViews.forEach((view) => {
-      const isSelected = view.id === `${selectedProject}-project`;
-      view.hidden = !isSelected;
-      view.classList.toggle('is-selected', isSelected);
-    });
-    document.querySelector('#opportunity')?.scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
-  });
 
   reducedMotion.addEventListener('change', () => {
     syncHero();

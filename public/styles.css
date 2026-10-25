@@ -205,6 +205,12 @@ html[data-page="about"] .team-strip{display:grid}
 .industrial-points strong{font-size:11px;color:#87654c;letter-spacing:.12em}
 .industrial-points h3{font:400 25px/1.15 var(--serif);margin:18px 0 10px}
 .industrial-points p{font-size:14px;line-height:1.7;color:#68665e;margin:0}
+.floating-whatsapp svg{width:27px;height:27px;display:block;fill:currentColor}
+body{font-size:18px;line-height:1.7}
+.intro-lower>p,.services-heading>p,.team-copy>p:not(.eyebrow),.opportunity-copy>p:not(.eyebrow),.journey-heading>p,.sector-card>p,.industrial-summary p,.industrial-location p,.industrial-next p{font-size:16px;line-height:1.8}
+.service-detail{font-size:15px;line-height:1.6}
+.project-facts p,.project-expansion p,.profile-facts span,.investment-lines span,.returns-table,.roi-scenario-grid article p,.project-note p,.project-timeline p{font-size:14px;line-height:1.75}
+@media(max-width:700px){body{font-size:17px}.intro-lower>p,.services-heading>p,.team-copy>p:not(.eyebrow),.opportunity-copy>p:not(.eyebrow),.journey-heading>p,.sector-card>p,.industrial-summary p,.industrial-location p,.industrial-next p{font-size:15px}.service-detail{font-size:15px}.project-facts p,.project-expansion p,.profile-facts span,.investment-lines span,.returns-table,.roi-scenario-grid article p,.project-note p,.project-timeline p{font-size:13px}}
 .industrial-tour{display:flex;justify-content:space-between;align-items:center;gap:30px;margin:0 0 75px;padding:38px 42px;background:#242622;color:#f3f0e9}.industrial-tour h3{font:400 clamp(2rem,3.2vw,3.4rem)/1.08 var(--serif);margin:15px 0}.industrial-tour p{max-width:620px;margin:0;color:#d7d0c4;font-size:15px;line-height:1.8}.industrial-tour .eyebrow{color:#d3b384}.industrial-tour .button{margin-top:0;white-space:nowrap}
 .industrial-gallery{padding-top:30px;border-top:1px solid var(--line)}
 .industrial-gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:28px}
