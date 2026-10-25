@@ -206,10 +206,16 @@
     link.href = makeWhatsAppUrl(`Hello Adams, I am enquiring about ${link.dataset.service}. Please share the next steps.`);
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
-    const localLine = document.createElement('span');
-    localLine.className = 'service-malayalam';
-    localLine.textContent = 'സ്വത്ത് കാര്യങ്ങളിൽ ഞങ്ങൾ നിങ്ങളോടൊപ്പം.';
-    link.append(localLine);
+    const visualImages = [
+      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=80',
+      'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=700&q=80',
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=700&q=80',
+    ];
+    const visual = document.createElement('span');
+    visual.className = 'service-card-image';
+    visual.setAttribute('aria-hidden', 'true');
+    visual.style.backgroundImage = `url('${visualImages[(Number(link.querySelector('.service-number')?.textContent) - 1) % visualImages.length]}')`;
+    link.prepend(visual);
   });
 
   const projectViews = [...document.querySelectorAll('.project-view')];
