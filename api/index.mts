@@ -1,20 +1,33 @@
-import { NestFactory } from '@nestjs/core';
-import { NestExpressApplication } from '@nestjs/platform-express';
-import type { Request, Response } from 'express';
-import { join } from 'path';
-import { AppModule } from '../src/app.module';
+import { readFile, stat } from 'node:fs/promises';
+import { extname, join, normalize } from 'node:path';
+import type { IncomingMessage, ServerResponse } from 'node:http';
 
-let applicationPromise: Promise<NestExpressApplication> | undefined;
+const publicDirectory = join(process.cwd(), 'public');
+const contentTypes: Record<string, string> = {
+  '.css': 'text/css; charset=utf-8',
+  '.html': 'text/html; charset=utf-8',
+  '.js': 'text/javascript; charset=utf-8',
+  '.png': 'image/png',
+  '.svg': 'image/svg+xml',
+};
 
-async function createApplication(): Promise<NestExpressApplication> {
-  const application = await NestFactory.create<NestExpressApplication>(AppModule);
-  application.useStaticAssets(join(process.cwd(), 'public'), { index: false });
-  await application.init();
-  return application;
-}
+export default async function handler(request: IncomingMessage, response: ServerResponse): Promise<void> {
+  try {
+    const requestPath = decodeURIComponent(new URL(request.url ?? '/', 'http://localhost').pathname);
+    const requestedFile = normalize(join(publicDirectory, requestPath));
+    const isInsidePublic = requestedFile === publicDirectory || requestedFile.startsWith(`${publicDirectory}/`);
+    const filePath = isInsidePublic && (await stat(requestedFile).catch(() => null))?.isFile()
+      ? requestedFile
+      : join(publicDirectory, 'index.html');
+    const body = await readFile(filePath);
 
-export default async function handler(request: Request, response: Response): Promise<void> {
-  applicationPromise ??= createApplication();
-  const application = await applicationPromise;
-  application.getHttpAdapter().getInstance()(request, response);
+    response.statusCode = 200;
+    response.setHeader('Content-Type', contentTypes[extname(filePath)] ?? 'application/octet-stream');
+    response.setHeader('Cache-Control', filePath.endsWith('index.html') ? 'no-cache' : 'public, max-age=31536000, immutable');
+    if (request.method !== 'HEAD') response.end(body);
+    else response.end();
+  } catch {
+    response.statusCode = 500;
+    response.end('Unable to load the site.');
+  }
 }
