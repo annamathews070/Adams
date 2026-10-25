@@ -285,3 +285,9 @@ body{font-size:18px;line-height:1.7}
 .footer-bottom span:last-child{max-width:440px}
 @media(max-width:1200px){.footer-main{grid-template-columns:1.1fr 1fr 1fr;gap:28px}.footer-contact{grid-column:3}.footer-main>p{grid-column:2/4}.footer .brand{grid-row:1/3}}
 @media(max-width:700px){.service-card{min-height:0;padding:24px 22px 27px}.service-card-image{width:calc(100% + 44px);height:52px;margin:-24px -22px 18px}.service-card h3{font-size:21px;line-height:1.3;white-space:normal}.service-detail{font-size:14px;max-width:none}.footer{padding:58px 0 30px}.footer-main{grid-template-columns:1fr;gap:25px;padding-bottom:34px}.footer .brand{grid-row:auto;width:min(330px,100%)}.footer-main>p,.footer-links,.footer-contact{grid-column:auto}.footer-main>p{font-size:23px}.footer-links{font-size:16px;gap:14px 24px}.footer-contact{font-size:15px}.footer-contact a{font-size:18px}.footer-bottom{display:grid;grid-template-columns:1fr;gap:10px;font-size:13px}.footer-bottom span:last-child{text-align:left}}
+
+/* Keep the Adams mark and Facebook reel crisp at every viewport. */
+.preloader-logo{display:block;width:min(300px,72vw);height:auto;filter:drop-shadow(0 2px 10px rgba(10,181,173,.22))}
+.facebook-reel-frame{width:min(100%,500px);min-height:0;aspect-ratio:9/16}
+.facebook-reel-frame iframe{width:100%;height:100%;max-width:100%;display:block}
+@media(max-width:700px){.facebook-reel-frame{width:100%;max-width:420px}.facebook-reel-frame iframe{height:100%}}
