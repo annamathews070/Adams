@@ -291,3 +291,12 @@ body{font-size:18px;line-height:1.7}
 .facebook-reel-frame{width:min(100%,500px);min-height:0;aspect-ratio:9/16}
 .facebook-reel-frame iframe{width:100%;height:100%;max-width:100%;display:block}
 @media(max-width:700px){.facebook-reel-frame{width:100%;max-width:420px}.facebook-reel-frame iframe{height:100%}}
+
+/* Final readable type scale for long-form property information. */
+body{font-size:18px;line-height:1.75}
+.proposal-status p,.brick-profile>div:first-child>p,.investment-intro>p:last-child,.returns-heading>p:last-child,.return-note,.roi-scenarios>div:first-child>p:last-child,.roi-scenario-grid article p,.project-expansion p,.investor-structure>div>p,.structure-note,.project-timeline p,.project-note p{font-size:16px;line-height:1.8}
+.project-facts p,.profile-facts span,.investment-lines span,.returns-table,.project-facts .fact-unit,.profile-index,.project-timeline>.eyebrow{font-size:14px;line-height:1.7}
+.service-detail,.team-copy>p:not(.eyebrow),.services-heading>p,.opportunity-copy>p:not(.eyebrow),.sector-card>p{font-size:16px;line-height:1.8}
+.eyebrow,.section-index{font-size:13px}
+.footer-links,.footer-contact,.footer-bottom{font-size:15px}
+@media(max-width:700px){body{font-size:17px}.proposal-status p,.brick-profile>div:first-child>p,.investment-intro>p:last-child,.returns-heading>p:last-child,.return-note,.roi-scenarios>div:first-child>p:last-child,.roi-scenario-grid article p,.project-expansion p,.investor-structure>div>p,.structure-note,.project-timeline p,.project-note p{font-size:15px}.project-facts p,.profile-facts span,.investment-lines span,.returns-table,.project-facts .fact-unit,.profile-index,.project-timeline>.eyebrow{font-size:13px}.eyebrow,.section-index{font-size:11px}}
