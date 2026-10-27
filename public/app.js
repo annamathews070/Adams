@@ -204,37 +204,36 @@
       : defaultMessage;
     link.href = makeWhatsAppUrl(message);
   });
-  const serviceImages = [
-    '/481454792_656406856909482_751076664228993577_n.jpg',
-    '/481264914_654010743815760_7413663627473041563_n.jpg',
-    '/481248656_654134183803416_5462889590812142359_n.jpg',
-    '/481248474_655277207022447_5415694193056454044_n.jpg',
-    '/481215993_657617360121765_3981749614843219523_n.jpg',
-    '/481162888_654772390406262_3521371350793046438_n.jpg',
-    '/481123681_654137463803088_1847569231557199214_n.jpg',
-    '/481078918_654543443762490_3646452962842856892_n.jpg',
-    '/481014443_654676340415867_8011219740353526448_n.jpg',
-    '/480985954_654523267097841_5954707617363801989_n.jpg',
-    '/480821330_654763360407165_5572472365107838161_n.jpg',
-    '/467397863_603919495404928_2655220210724279975_n.jpg',
-    '/240525186_103339855462897_1443017269896848194_n.jpg',
-    '/482066556_654004480483053_6647652608918918720_n.jpg',
-    '/481960473_658338343383000_7763229096335771822_n.jpg',
-    '/481914203_658446970038804_218075229321967509_n (1).jpg',
-    '/481666646_657612813455553_4713639274072776984_n.jpg',
-    '/481509924_654681370415364_5459214013268868955_n.jpg',
-    '/481495719_655291160354385_5239454203498305641_n.jpg',
-    '/482246641_654546610428840_6114988781940238735_n.jpg',
-  ];
+  const serviceArtwork = {
+    'Property documentation and registration': '/481248474_655277207022447_5415694193056454044_n.jpg',
+    'Power of attorney': '/481264914_654010743815760_7413663627473041563_n.jpg',
+    'Certified copy of title deed': '/481248474_655277207022447_5415694193056454044_n.jpg',
+    'Rectification of clerical mistakes, land tax and property deeds': '/481248656_654134183803416_5462889590812142359_n.jpg',
+    'Property mutation': '/481215993_657617360121765_3981749614843219523_n.jpg',
+    'Building permit': '/481960473_658338343383000_7763229096335771822_n.jpg',
+    'Building permits': '/481960473_658338343383000_7763229096335771822_n.jpg',
+    Pattayam: '/481162888_654772390406262_3521371350793046438_n.jpg',
+    'Location certificate': '/481123681_654137463803088_1847569231557199214_n.jpg',
+    'Resurvey F10, Revenue Department': '/481078918_654543443762490_3646452962842856892_n.jpg',
+    'GPS survey and total station': '/481014443_654676340415867_8011219740353526448_n.jpg',
+    'Rent and sale agreements': '/480985954_654523267097841_5954707617363801989_n.jpg',
+    'Leasing agreement services': '/480821330_654763360407165_5572472365107838161_n.jpg',
+    'Property consulting and advisory': '/481509924_654681370415364_5459214013268868955_n.jpg',
+    'Building permit': '/481960473_658338343383000_7763229096335771822_n.jpg',
+    'Project management': '/481666646_657612813455553_4713639274072776984_n.jpg',
+    'Real estate management service': '/481495719_655291160354385_5239454203498305641_n.jpg',
+    'Conversion of wetland F5, F6, F7': '/482246641_654546610428840_6114988781940238735_n.jpg',
+    'Pollution licence for business': '/467397863_603919495404928_2655220210724279975_n.jpg',
+    'K-SWIFT application': '/240525186_103339855462897_1443017269896848194_n.jpg',
+    'Speedy disposal of cases': '/481914203_658446970038804_218075229321967509_n (1).jpg',
+  };
   document.querySelectorAll('.service-card[data-service]').forEach((link) => {
     link.href = makeWhatsAppUrl(`Hello Adams, I am enquiring about ${link.dataset.service}. Please share the next steps.`);
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     const visual = document.createElement('img');
     visual.className = 'service-card-image';
-    const serviceNumber = Number(link.querySelector('.service-number')?.textContent) - 1;
-    const imageIndex = serviceNumber === 16 ? 1 : serviceNumber > 0 ? serviceNumber + 1 : 0;
-    visual.src = serviceImages[imageIndex % serviceImages.length];
+    visual.src = serviceArtwork[link.dataset.service] || '/481454792_656406856909482_751076664228993577_n.jpg';
     visual.alt = `${link.querySelector('h3')?.textContent.trim() || 'Property service'} artwork from Adams`;
     visual.loading = 'lazy';
     link.prepend(visual);
